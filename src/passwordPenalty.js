@@ -7,13 +7,17 @@
  */
 export default function penaltyPoints(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
+  let penalty = 0;
+  if (password === null) {
+    return penalty;
+  }
   if (typeof password !== "string") password = String(password);
 
   // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   // * * * INSERT YOUR CODE HERE * * * * * * * * * * * * * *
   // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   //
-  let penalty = 0;
+
   const regex = /(\w)\1{1,}/g;
   const sequences = password.match(regex);
 
