@@ -13,4 +13,19 @@ export default function penaltyPoints(password = "") {
   // * * * INSERT YOUR CODE HERE * * * * * * * * * * * * * *
   // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   //
+  let penalty = 0;
+  const regex = /(\w)\1{1,}/g;
+  const sequences = password.match(regex);
+
+  if (sequences) {
+    sequences.forEach((seq) => {
+      if (seq.length === 2) {
+        penalty += 1;
+      } else if (seq.length >= 3) {
+        penalty += 2;
+      }
+    });
+  }
+
+  return penalty;
 }
