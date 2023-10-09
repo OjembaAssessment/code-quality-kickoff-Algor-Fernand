@@ -5,12 +5,9 @@
  */
 
 // FUNCTION 1
-export default function cntRbt(ls) {
-  var cnt = 0;
-  for (var i = 0; i < ls.length; i++) {
-    if (ls[i] == "R") {
-      cnt++;
-    }
-  }
-  return cnt;
+export default function countR(word) {
+  const count = word.split("").reduce((acc, curr) => {
+    return curr === "R" ? acc + 1 : acc;
+  }, 0);
+  return count;
 }
